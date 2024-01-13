@@ -359,16 +359,14 @@
 	
 	
 	
-	
-	
-/// Replace 'YOUR_API_KEY' with your actual Google API key
+	// Replace 'YOUR_API_KEY' with your actual Google API key
 const apiKey = 'AIzaSyBLtv8Ku-gBq4eQPRecXxXi0GFFiGVYcrY';
 
 // Replace 'PLACE_ID' with the Google Place ID of your business
 const placeId = 'ChIJc_dVAcckZ2gR54d2HZTTKrQ';
 
 // Replace 'https://external-api.com/places' with your actual external API URL
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const proxyUrl = 'https://cors.bridged.cc/';
 const apiUrl = `${proxyUrl}https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}`;
 
 // Fetch and display 5-star Google reviews
