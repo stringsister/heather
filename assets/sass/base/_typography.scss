@@ -1,52 +1,58 @@
 ///
-/// Identity by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+/// Standout by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
 ///
 
-/* Type */
+/* Typography */
 
-	body, input, select, textarea {
-		color: _palette(fg);
-		font-family: _font(family);
-		font-size: 14pt;
-		font-weight: _font(weight);
-		line-height: 2;
-		letter-spacing: _size(letter-spacing);
-		text-transform: uppercase;
+	html {
+		font-size: 15pt;
 
 		@include breakpoint('<=xlarge') {
-			font-size: 11pt;
+			font-size: 13pt;
+		}
+
+		@include breakpoint('<=large') {
+			font-size: 12pt;
+		}
+
+		@include breakpoint('<=medium') {
+			font-size: 12pt;
 		}
 
 		@include breakpoint('<=xsmall') {
-			font-size: 10pt;
-			line-height: 1.75;
+			font-size: 12pt;
+		}
+
+		@include breakpoint('<=xxsmall') {
+			font-size: 11pt;
 		}
 	}
 
-	a {
-		@include vendor('transition', (
-			'color #{_duration(transition)} ease',
-			'border-color #{_duration(transition)} ease'
-		));
-		color: inherit;
-		text-decoration: none;
+	body {
+		background-color: _palette(bg);
+		color: _palette(fg);
+	}
 
-		&:before {
-			@include vendor('transition', (
-				'color #{_duration(transition)} ease',
-				'text-shadow #{_duration(transition)} ease'
-			));
-		}
+	body, input, select, textarea {
+		font-family: _font(family);
+		font-weight: _font(weight);
+		font-size: 1rem;
+		line-height: 1.8;
+	}
+
+	a {
+		@include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+		text-decoration: underline;
 
 		&:hover {
-			color: _palette(highlight);
+			text-decoration: none;
 		}
 	}
 
 	strong, b {
-		color: _palette(fg-bold);
+		font-weight: _font(weight-bold);
 	}
 
 	em, i {
@@ -58,9 +64,11 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: _palette(fg-bold);
+		font-weight: _font(weight-bold);
+		letter-spacing: _size(letter-spacing);
 		line-height: 1.5;
-		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		margin: 0 0 (_size(element-margin) * 0.75) 0;
+		text-transform: uppercase;
 
 		a {
 			color: inherit;
@@ -69,51 +77,157 @@
 	}
 
 	h1 {
-		font-size: 1.85em;
-		letter-spacing: (_size(letter-spacing) * 1.1);
-		margin: 0 0 (_size(element-margin) * 0.35) 0;
+		font-family: _font(family-head);
+		font-size: 4rem;
+		letter-spacing: _size(letter-spacing-alt);
 	}
 
 	h2 {
-		font-size: 1.25em;
+		font-size: 1.75rem;
 	}
 
 	h3 {
-		font-size: 1em;
+		font-size: 1.5rem;
 	}
 
 	h4 {
-		font-size: 1em;
+		font-size: 1.25rem;
 	}
 
 	h5 {
-		font-size: 1em;
+		font-size: 1rem;
 	}
 
 	h6 {
-		font-size: 1em;
+		font-size: 0.75rem;
 	}
 
-	@include breakpoint('<=xsmall') {
+	@include breakpoint('<=large') {
 		h1 {
-			font-size: 1.65em;
+			font-size: 3.5rem;
+		}
+	}
+
+	@include breakpoint('<=medium') {
+		h1 {
+			font-size: 3rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+		}
+	}
+
+	@include breakpoint('<=small') {
+		h1 {
+			font-size: 1.75rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
 		}
 	}
 
 	sub {
-		font-size: 0.8em;
+		font-size: 0.8rem;
 		position: relative;
-		top: 0.5em;
+		top: 0.5rem;
 	}
 
 	sup {
-		font-size: 0.8em;
+		font-size: 0.8rem;
 		position: relative;
-		top: -0.5em;
+		top: -0.5rem;
+	}
+
+	blockquote {
+		border-left: solid 0.5rem;
+		font-style: italic;
+		margin: 0 0 _size(element-margin) 0;
+		padding: (_size(element-margin) * 0.5) 0 (_size(element-margin) * 0.5) _size(element-margin);
+	}
+
+	code {
+		border-radius: _size(border-radius);
+		border: solid 1px;
+		font-family: _font(family-fixed);
+		font-size: 0.9rem;
+		margin: 0 0.25rem;
+		padding: 0.25rem 0.65rem;
+	}
+
+	pre {
+		-webkit-overflow-scrolling: touch;
+		font-family: _font(family-fixed);
+		font-size: 0.9rem;
+		margin: 0 0 _size(element-margin) 0;
+
+		code {
+			display: block;
+			line-height: 1.75;
+			padding: 1rem 1.5rem;
+			overflow-x: auto;
+		}
 	}
 
 	hr {
 		border: 0;
-		border-bottom: solid _size(border-width) _palette(border);
-		margin: (_size(element-margin) * 2) 0;
+		border-bottom: solid 1px;
+		margin: _size(element-margin) 0;
+
+		&.major {
+			margin: (_size(element-margin) * 2) 0;
+		}
+
+		@include breakpoint('<=small') {
+			&.major {
+				margin: (_size(element-margin) * 1.5) 0;
+			}
+		}
 	}
+
+	@mixin color-typography($p: null) {
+		@if $p != null {
+			background-color: _palette($p, bg);
+			color: _palette($p, fg);
+		}
+
+		input, select, textarea {
+			color: _palette($p, fg-bold);
+		}
+
+		a {
+			color: _palette($p, fg-bold);
+		}
+
+		strong, b {
+			color: _palette($p, fg-bold);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			color: _palette($p, fg-bold);
+		}
+
+		blockquote {
+			border-left-color: _palette($p, border);
+		}
+
+		code {
+			background: _palette($p, border-bg);
+			border-color: _palette($p, border);
+		}
+
+		hr {
+			border-bottom-color: _palette($p, border);
+		}
+	}
+
+	@include color-typography;
